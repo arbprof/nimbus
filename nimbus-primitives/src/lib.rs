@@ -96,13 +96,13 @@ impl<T> CanAuthor<T> for () {
 /// different notions of AccoutId. It is also generic over the AuthorId to
 /// support the usecase where the author inherent is used for beneficiary info
 /// and contains an AccountId directly.
-pub trait AccountLookup<AccountId> {
-	fn lookup_account(author: &NimbusId) -> Option<AccountId>;
+pub trait AccountLookup<AuthorId, AccountId> {
+	fn lookup_account(author: &AuthorId) -> Option<AccountId>;
 }
 
 // A dummy impl used in simple tests
-impl<AccountId> AccountLookup<AccountId> for () {
-	fn lookup_account(_: &NimbusId) -> Option<AccountId> {
+impl<AuthorId, AccountId> AccountLookup<AuthorId, AccountId> for () {
+	fn lookup_account(_: &AuthorId) -> Option<AccountId> {
 		None
 	}
 }

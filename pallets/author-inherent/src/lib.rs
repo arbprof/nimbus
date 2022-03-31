@@ -49,7 +49,7 @@ pub mod pallet {
 		/// A type to convert between AuthorId and AccountId. This is useful when you want to associate
 		/// Block authoring behavior with an AccoutId for rewards or slashing. If you do not need to
 		/// hold an AccountID responsible for authoring use `()` which acts as an identity mapping.
-		type AccountLookup: AccountLookup<Self::AccountId>;
+		type AccountLookup: AccountLookup<NimbusId, Self::AccountId>;
 
 		/// Other pallets that want to be informed about block authorship
 		type EventHandler: EventHandler<Self::AccountId>;
